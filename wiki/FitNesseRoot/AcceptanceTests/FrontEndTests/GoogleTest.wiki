@@ -1,8 +1,8 @@
 <test page>
-|script            |browser test                  |
-|open              |http://www.google.com         |
-|show              |click if available |id=L2AGLb |
-|enter             |Penguin Success    |as |Search|
-|press             |enter                         |
-|click if available|!-Penguin Success | LinkedIn-!|
-|wait              |10                 |seconds   |
+|script            |browser test                   |
+|open              |http://www.google.com          |
+|show              |click if available|id=L2AGLb   |
+|enter             |Penguin Success   |as|Pesquisar|
+|press             |enter                          |
+|click if available|!-Penguin Success | LinkedIn-! |
+|wait              |10                |seconds     |
