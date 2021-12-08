@@ -9,7 +9,7 @@ docker pull selenium/standalone-chrome:${SELENIUM_VERSION}
 
 docker build --build-arg SELENIUM_VERSION=${SELENIUM_VERSION} -t ${IMAGE} chrome
 
-docker run --rm \
+docker run --rm --user root \
     -v ${BASEDIR}/target/failsafe-reports:/fitnesse/target/failsafe-reports \
     -v ${BASEDIR}/target/fitnesse-results/chrome:/fitnesse/target/fitnesse-results \
     -v ${BASEDIR}/target/fitnesse-results/chrome-rerun:/fitnesse/target/fitnesse-rerun-results \

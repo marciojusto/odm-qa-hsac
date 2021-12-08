@@ -1,4 +1,3 @@
-USER root
 ARG  TEST_IMAGE=hsac/fitnesse-fixtures-test-jre8:latest
 ARG  SELENIUM_VERSION=latest
 FROM ${TEST_IMAGE} as hsac-fixtures
