@@ -1,4 +1,5 @@
-<test page>
+!1 Just testing a Google search with a click on a link for !-LinkedIn-! page
+
 |script            |browser test                   |
 |open              |http://www.google.com          |
 |show              |click if available|id=L2AGLb   |
