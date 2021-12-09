@@ -8,6 +8,7 @@ pipeline {
 
             steps {
                 echo 'building the application...'
+                sh './mvnw clean compile'
             }
         }
 
@@ -15,7 +16,7 @@ pipeline {
 
             steps {
                 echo 'testing the application...'
-                sh   './buildChrome.sh'
+                //sh   './buildChrome.sh'
             }
         }
 
