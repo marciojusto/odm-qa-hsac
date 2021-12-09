@@ -15,7 +15,7 @@ pipeline {
 
             steps {
                 echo 'testing the application...'
-                sh   'buildChrome.sh'
+                sh   './buildChrome.sh'
             }
         }
 
