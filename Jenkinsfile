@@ -8,6 +8,7 @@ pipeline {
 
             steps {
                 echo 'building the application...'
+                git 'https://github.com/marciojusto/odm-qa-hsac.git'
                 sh './mvnw clean compile'
             }
         }
