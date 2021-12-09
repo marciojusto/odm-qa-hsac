@@ -8,7 +8,7 @@ pipeline {
 
             steps {
                 echo 'building the application...'
-                withMaven(maven: 'maven') {
+                withMaven {
                     sh 'mvn clean compile'
                 }
             }
