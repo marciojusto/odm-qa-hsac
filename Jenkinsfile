@@ -8,7 +8,7 @@ pipeline {
 
             steps {
                 echo 'building the application...'
-                sh 'ls -la'
+                sh 'sh buildChrome.sh'
             }
         }
 
