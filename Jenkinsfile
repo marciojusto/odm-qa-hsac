@@ -13,7 +13,7 @@ pipeline {
 
             steps {
                 echo 'building the application...'
-                sh 'sh buildChrome.sh'
+                sh 'mvn -version'
             }
         }
 
