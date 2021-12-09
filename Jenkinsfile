@@ -8,7 +8,7 @@ pipeline {
 
             steps {
                 echo 'building the application...'
-                withMaven(jdk: 'OpenJDK-8', maven: 'maven') {
+                withMaven(maven: 'maven') {
                     sh 'mvn clean compile'
                 }
             }
