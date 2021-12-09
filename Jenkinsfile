@@ -8,8 +8,7 @@ pipeline {
 
             steps {
                 echo 'building the application...'
-                git 'https://github.com/marciojusto/odm-qa-hsac.git'
-                sh './mvnw clean compile'
+                sh 'ls -la'
             }
         }
 
@@ -26,6 +25,12 @@ pipeline {
             steps {
                 echo 'deploying the application...'
             }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()
         }
     }
 }
