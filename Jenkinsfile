@@ -6,18 +6,11 @@ pipeline {
 
     stages {
 
-        stage("Git Checkout") {
-
-            steps {
-                echo 'checkout the application...'
-                //git branch: 'dev', url: 'https://github.com/marciojusto/odm-qa-hsac.git'
-            }
-        }
-
         stage("build") {
 
             steps {
                 echo 'building the application...'
+                sh 'mvn --version'
             }
         }
 
