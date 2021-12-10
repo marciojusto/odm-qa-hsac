@@ -1,7 +1,7 @@
 pipeline {
 
     agent {
-        docker { image '3.8.4-jdk-8' }
+        docker { image 'maven:3.8.4-jdk-8' }
     }
 
     stages {
@@ -10,7 +10,7 @@ pipeline {
 
             steps {
                 echo 'checkout the application...'
-                git branch: 'dev', url: 'https://github.com/marciojusto/odm-qa-hsac.git'
+                //git branch: 'dev', url: 'https://github.com/marciojusto/odm-qa-hsac.git'
             }
         }
 
