@@ -1,19 +1,33 @@
-node {
+pipeline {
 
-    stage("Main Build") {
+    agent {
+        docker {
+            image 'maven:3.8.4-jdk-8'
+            args '-v $HOME/.m2:/root/.m2'
+        }
+    }
 
-        docker.image('maven:3.8.4-jdk-8').inside {
-
-            stage("build") {
-                echo 'building the application...'
-                sh 'mvn clean compile'
+    stage("build") {
+        steps {
+            echo 'building the application...'
+            sh 'mvn clean compile'
+            script {
+                docker.image('selenium/standalone-chrome:4.1.0').inside {
+                    sh 'run hello-world'
+                }
             }
         }
+    }
 
-        docker.image('selenium/standalone-chrome:4.1.0').run('--version') {
-            stage("test") {
-                echo 'testing the application...'
-            }
+    stage("test") {
+        steps {
+            echo 'testing the application...'
+        }
+    }
+
+    stage("deploy") {
+        steps {
+            echo 'deploying the application...'
         }
     }
 }
