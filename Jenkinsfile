@@ -7,27 +7,30 @@ pipeline {
         }
     }
 
-    stage("build") {
-        steps {
-            echo 'building the application...'
-            sh 'mvn clean compile'
-            script {
-                docker.image('selenium/standalone-chrome:4.1.0').inside {
-                    sh 'run hello-world'
+    stages {
+
+        stage("build") {
+            steps {
+                echo 'building the application...'
+                sh 'mvn clean compile'
+                script {
+                    docker.image('selenium/standalone-chrome:4.1.0').inside {
+                        sh 'run hello-world'
+                    }
                 }
             }
         }
-    }
 
-    stage("test") {
-        steps {
-            echo 'testing the application...'
+        stage("test") {
+            steps {
+                echo 'testing the application...'
+            }
         }
-    }
 
-    stage("deploy") {
-        steps {
-            echo 'deploying the application...'
+        stage("deploy") {
+            steps {
+                echo 'deploying the application...'
+            }
         }
     }
 }
