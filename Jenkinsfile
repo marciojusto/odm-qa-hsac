@@ -2,7 +2,7 @@ node {
 
     stage("Main Build") {
 
-        docker.image('maven:3.8.4-jdk-8').withRun('--version').inside {
+        docker.image('maven:3.8.4-jdk-8').run('--version').inside {
 
             stage("build") {
                 echo 'building the application...'
