@@ -1,30 +1,20 @@
-pipeline {
+node {
 
-    agent any
+    stage("Main Build") {
 
-    stages {
+        docker.image('maven:3.8.4-jdk-8').inside {
 
-        stage("build") {
-            steps {
+            stage("build") {
                 echo 'building the application...'
                 sh 'mvn clean compile'
-                withDockerContainer {
-                    image 'maven:3.8.4-jdk-8'
-                    args '-v $HOME/.m2:/root/.m2'
-                    sh 'docker --version'
-                }
+                sh 'docker --version'
             }
-        }
 
-        stage("test") {
-            steps {
+            stage("test") {
                 echo 'testing the application...'
             }
-        }
 
-        stage("deploy") {
-
-            steps {
+            stage("deploy") {
                 echo 'deploying the application...'
             }
         }
