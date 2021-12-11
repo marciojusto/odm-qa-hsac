@@ -9,6 +9,11 @@ pipeline {
 
     stages {
 
+        stage('Initialize') {
+            def dockerHome = tool 'docker-local'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
+
         stage("build") {
 
             steps {
