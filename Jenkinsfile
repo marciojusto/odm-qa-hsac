@@ -14,16 +14,13 @@ pipeline {
             steps {
                 echo 'building the application...'
                 sh 'mvn clean compile'
+                sh 'docker --version'
             }
         }
 
         stage("test") {
-            agent { label linux }
             steps {
                 echo 'testing the application...'
-                sh '''
-                    docker --version
-                   '''
             }
         }
 
