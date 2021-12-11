@@ -18,11 +18,10 @@ pipeline {
         }
 
         stage("test") {
-
+            agent { label linux }
             steps {
                 echo 'testing the application...'
                 sh '''
-                    #!/bin/bash
                     docker --version
                    '''
             }
