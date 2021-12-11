@@ -10,12 +10,13 @@ pipeline {
     stages {
 
         stage('Initialize') {
-            def dockerHome = tool 'docker-local'
-            env.PATH = "${dockerHome}/bin:${env.PATH}"
+            steps {
+                def dockerHome = tool 'docker-local'
+                env.PATH = "${dockerHome}/bin:${env.PATH}"
+            }
         }
 
         stage("build") {
-
             steps {
                 echo 'building the application...'
                 sh 'mvn clean compile'
