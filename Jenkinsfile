@@ -13,9 +13,7 @@ pipeline {
             steps {
                 echo 'building the application...'
                 sh 'mvn clean compile'
-                script {
-                    sh 'docker --version'
-                }
+                docker.withRun('hello-world')
             }
         }
 
