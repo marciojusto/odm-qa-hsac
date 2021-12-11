@@ -1,11 +1,11 @@
 node {
 
-    agent {
-        docker {
-            image 'maven:3.8.4-jdk-8'
-            args '-v $HOME/.m2:/root/.m2'
-        }
-    }
+//     agent {
+//         docker {
+//             image 'maven:3.8.4-jdk-8'
+//             args '-v $HOME/.m2:/root/.m2'
+//         }
+//     }
 
     stages {
 
@@ -13,9 +13,7 @@ node {
             steps {
                 echo 'building the application...'
                 sh 'mvn clean compile'
-                script {
-                    docker.withRun('hello-world')
-                }
+                docker.image('maven:3.8.4-jdk-8').withRun('hello-world')
             }
         }
 
