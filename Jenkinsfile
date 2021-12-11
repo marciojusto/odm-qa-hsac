@@ -13,7 +13,9 @@ pipeline {
             steps {
                 echo 'building the application...'
                 sh 'mvn clean compile'
-                sh 'docker --version'
+                script {
+                    sh 'docker --version'
+                }
             }
         }
 
