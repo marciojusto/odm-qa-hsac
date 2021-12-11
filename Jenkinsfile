@@ -1,7 +1,10 @@
 pipeline {
 
     agent {
-        docker { image 'maven:3.8.4-jdk-8' }
+        docker {
+            image 'maven:3.8.4-jdk-8'
+            args '-v $HOME/.m2:/root/.m2'
+        }
     }
 
     stages {
@@ -18,7 +21,10 @@ pipeline {
 
             steps {
                 echo 'testing the application...'
-                sh './buildChrome.sh'
+                sh '''
+                    #!/bin/bash
+                    docker --version
+                   '''
             }
         }
 
