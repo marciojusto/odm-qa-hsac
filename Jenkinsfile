@@ -8,16 +8,12 @@ node {
                 echo 'building the application...'
                 sh 'mvn clean compile'
             }
+        }
 
+        docker.image('selenium/standalone-chrome:4.1.0').run('--version') {
             stage("test") {
                 echo 'testing the application...'
             }
-
-            stage("deploy") {
-                echo 'deploying the application...'
-            }
         }
-
-        docker.run('--version')
     }
 }
