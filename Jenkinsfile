@@ -7,7 +7,7 @@ pipeline {
         stage("build") {
             steps {
                 echo 'building the application...'
-                sh 'mvn --version'
+                sh 'sudo docker run hello-world'
             }
         }
 
