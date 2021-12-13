@@ -13,11 +13,6 @@ pipeline {
             steps {
                 echo 'building the application...'
                 sh 'mvn clean compile'
-                script {
-                    docker.image('selenium/standalone-chrome:4.1.0').inside {
-                        sh 'run hello-world'
-                    }
-                }
             }
         }
 
