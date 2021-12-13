@@ -9,9 +9,10 @@ RUN sudo mv /etc/supervisor/conf.d/selenium.conf /etc/supervisor/conf.d/selenium
     sudo ln -s /usr/bin/chromedriver /fitnesse/wiki/webdrivers/chromedriver-linux-64bit && \
     sudo chown -R 1200:1201 /fitnesse/
 
+COPY fitnesse-hsac.conf /etc/supervisor/conf.d/
+
 WORKDIR /fitnesse
 COPY startGridAndRunTests.sh .
-COPY fitnesse-hsac.conf /etc/supervisor/conf.d/
 
 VOLUME /fitnesse/target
 VOLUME /fitnesse/wiki/FitNesseRoot

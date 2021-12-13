@@ -1,0 +1,23 @@
+!note [POST] '''/api/1/odm-uaa/anonymous/token/'''
+
+!4 Retrieve TOKEN with anonymous login
+
+|script|json http test                                                                                                                |
+|post  |0 request      |to|http://api-dev.teamwill-digital.com/odm-authentication/api/1/anonymous/token/?applicationName=TWDMobileDemo|
+|check |response status|200                                                                                                           |
+|show  |response                                                                                                                      |
+
+
+#|script         |Perform rest call                                                        |
+#|set method as  |POST                                                                     |
+#|set endpoint as|/odm-authentication/api/1/anonymous/token/?applicationName=TWDMobileDemo |
+#|perform call                                                                             |
+#|check          |return code               |200                                           |
+#|ensure         |response time is less than|20000                          |ms            |
+#|ensure         |response tag is not empty |token                                         |
+#|retrieve       |token                     |from response body and store in|SECURITY_TOKEN|
+#|show           |response time                                                            |
+#|show           |url                                                                      |
+#|show           |context value for         |SECURITY_TOKEN                                |
+#|show           |response body as Json                                                    |
+#|show           |generate redmine message                                                 |
