@@ -4,12 +4,16 @@
 !4 Create new USER
 
 !define NEW_USER { {{{
-{"username": "${random.username()}","password": "${random.password()}","phoneNumber": "${random.phoneNumber()}","applicationName": "TWDMobileDemo","login":"${random.email()}"}
+{"username": ${randomInt},"password": "singha202}","phoneNumber": "+33607676410","applicationName": "TWDMobileDemo","login":"hsac@TWDMobileDemo"}
 }}} }
 
 !define USER { {{{
 {"username": "hsac@TWDMobileDemo","password": "singha2021","phoneNumber": "+33607676410","applicationName": "TWDMobileDemo","login":"hsac@TWDMobileDemo}"}
 }}} }
+
+|USER|
+|key|value|
+|username|!randomInt|
 
 |script          |json http test                                                         |
 |set value       |Bearer $SECURITY_TOKEN|for header|Authorization                        |
