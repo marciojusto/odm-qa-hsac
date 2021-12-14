@@ -10,8 +10,6 @@
 |$SECURITY_TOKEN=|json path      |token                                                                             |
 
 
-
-
 #|script         |Perform rest call                                                        |
 #|set method as  |POST                                                                     |
 #|set endpoint as|/odm-authentication/api/1/anonymous/token/?applicationName=TWDMobileDemo |

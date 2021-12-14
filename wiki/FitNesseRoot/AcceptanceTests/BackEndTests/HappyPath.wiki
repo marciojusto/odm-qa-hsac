@@ -11,3 +11,7 @@ Test
 !2 As a User I want to create the user information
 
 !include .AcceptanceTests.Services.Authentication.Functions.CreateNewUserFunction
+
+!2 As a User I want to retrive the TOKEN from the login created
+
+!include .AcceptanceTests.Services.Authentication.Functions.UserTokenFunction
