@@ -5,9 +5,9 @@
 
 |script   |map fixture                      |
 |set value|!randomUuid  |for|username       |
-|set value|singha202    |for|password       |
+|set value|${PASSWORD}    |for|password       |
 |set value|!randomInt   |for|phoneNumber    |
-|set value|TWDMobileDemo|for|applicationName|
+|set value|${APPLICATION_NAME}|for|applicationName|
 |set value|!randomUuid  |for|login          |
 |$userMap=|copy map                         |
 

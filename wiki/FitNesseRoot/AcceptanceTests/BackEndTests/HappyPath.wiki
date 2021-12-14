@@ -3,6 +3,8 @@ Test
 ---
 
 !define HOST {http://api-dev.teamwill-digital.com}
+!define APPLICATION_NAME {TWDMobileDemo}
+!define PASSWORD {singha202}
 
 !2 As a User I want to login anonymously
 

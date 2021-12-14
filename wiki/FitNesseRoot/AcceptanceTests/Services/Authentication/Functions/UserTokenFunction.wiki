@@ -2,12 +2,23 @@
 
 !4 Retrieve TOKEN from USER info
 
-|script|json http test|
+|script   |map fixture                      | $userMap |
+|set value|true  |for|rememberMe       |
+|set value|${PASSWORD}    |for|password       |
+|set value|${APPLICATION_NAME}|for|applicationName|
+|set value|userMap.login  |for|login          |
+|$userMapCreated=|copy map                         |
 
+
+|script                |json http test                                 |
+|set value             |Bearer $SECURITY_TOKEN|for header|Authorization|
+|set content type      |application/json                               |
+|copy values from      |$userMapCreated                                       |
+|post values as json to|${HOST}/odm-authentication/api/1/odm-authentication/token/?applicationName=${APPLICATION_NAME}          |
 
 #| script | Perform rest call |
 #| set method as | POST |
-#| set endpoint as | /odm-authentication/api/1/odm-authentication/token/?applicationName=TWDMobileDemo |
+#| set endpoint as | /odm-authentication/api/1/odm-authentication/token/?applicationName=${APPLICATION_NAME} |
 #| $body= | page content | >UserLoginInfoJsonBody | relative to | ${PAGE_PATH}.${PAGE_NAME} |
 #| set body as | $body |
 #| perform call |
