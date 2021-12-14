@@ -4,20 +4,19 @@
 !4 Create new USER
 
 !define NEW_USER { {{{
-json={"username": "${random.username()}","password": "${random.password()}","phoneNumber": "${random.phoneNumber()}","applicationName": "TWDMobileDemo","login":"${random.email()}"}
+{"username": "${random.username()}","password": "${random.password()}","phoneNumber": "${random.phoneNumber()}","applicationName": "TWDMobileDemo","login":"${random.email()}"}
 }}} }
 
 !define USER { {{{
 {"username": "hsac@TWDMobileDemo","password": "singha2021","phoneNumber": "+33607676410","applicationName": "TWDMobileDemo","login":"hsac@TWDMobileDemo}"}
 }}} }
 
-|script          |json http test                                                                                                                                                                                            |
-|set value       |Bearer $SECURITY_TOKEN                                                                                                                                   |for header|Authorization                        |
-|set content type|application/json                                                                                                                                                                                          |
-|set value       |{"username": "hsac@TWDMobileDemo","password": "singha2021","phoneNumber": "+33607676410","applicationName": "TWDMobileDemo","login":"hsac@TWDMobileDemo"}|for       |json                                 |
-|post            |${USER}                                                                                                                                                  |to        |${HOST}/odm-user/api/1/odm-user/user/|
-|check           |response status                                                                                                                                          |200                                             |
-|show            |response                                                                                                                                                                                                  |
+|script          |json http test                                                         |
+|set value       |Bearer $SECURITY_TOKEN|for header|Authorization                        |
+|set content type|application/json                                                       |
+|post            |${NEW_USER}           |to        |${HOST}/odm-user/api/1/odm-user/user/|
+|check           |response status       |200                                             |
+|show            |response                                                               |
 
 #| script | Perform rest call |
 #| set method as | POST |
