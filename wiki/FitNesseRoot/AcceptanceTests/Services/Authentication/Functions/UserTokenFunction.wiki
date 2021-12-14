@@ -6,7 +6,7 @@
 |set value|true  |for|rememberMe       |
 |set value|${PASSWORD}    |for|password       |
 |set value|${APPLICATION_NAME}|for|applicationName|
-|set value|userMap.login  |for|login          |
+|set value|$userMap.login  |for|login          |
 |$userMapCreated=|copy map                         |
 
 
