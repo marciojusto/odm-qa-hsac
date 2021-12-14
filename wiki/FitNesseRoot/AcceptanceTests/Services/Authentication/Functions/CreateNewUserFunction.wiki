@@ -11,16 +11,18 @@
 {"username": "hsac@TWDMobileDemo","password": "singha2021","phoneNumber": "+33607676410","applicationName": "TWDMobileDemo","login":"hsac@TWDMobileDemo}"}
 }}} }
 
-|USER|
-|key|value|
+|USER               |
+|key     |value     |
 |username|!randomInt|
 
-|script          |json http test                                                         |
-|set value       |Bearer $SECURITY_TOKEN|for header|Authorization                        |
-|set content type|application/json                                                       |
-|post            |${NEW_USER}           |to        |${HOST}/odm-user/api/1/odm-user/user/|
-|check           |response status       |200                                             |
-|show            |response                                                               |
+
+|script          |json http test                                                                                                                                                                            |
+|set value       |Bearer $SECURITY_TOKEN                                                                                                                   |for header|Authorization                        |
+|set content type|application/json                                                                                                                                                                          |
+|post            |{"username": "!randomUuid","password": "singha202","phoneNumber": "!randomInt","applicationName": "TWDMobileDemo","login":"!randomUuid" }|to        |${HOST}/odm-user/api/1/odm-user/user/|
+|check           |response status                                                                                                                          |200                                             |
+|show            |response                                                                                                                                                                                  |
+|$NEW_USER=      |response                                                                                                                                                                                  |
 
 #| script | Perform rest call |
 #| set method as | POST |
