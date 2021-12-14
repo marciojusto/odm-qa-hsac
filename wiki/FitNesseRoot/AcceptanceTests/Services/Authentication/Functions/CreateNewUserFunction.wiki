@@ -11,13 +11,14 @@
 |set value|!randomUuid  |for|login          |
 |$userMap=|copy map                         |
 
-|script          |json http test                                                                                                                                                                            |
-|set value       |Bearer $SECURITY_TOKEN                                                                                                                   |for header|Authorization                        |
-|set content type|application/json                                                                                                                                                                          |
-|post            |{"username": "!randomUuid","password": "singha202","phoneNumber": "!randomInt","applicationName": "TWDMobileDemo","login":"!randomUuid" }|to        |${HOST}/odm-user/api/1/odm-user/user/|
-|check           |response status                                                                                                                          |200                                             |
-|show            |response                                                                                                                                                                                  |
-|$NEW_USER=      |response                                                                                                                                                                                  |
+|script                |json http test                                 |
+|set value             |Bearer $SECURITY_TOKEN|for header|Authorization|
+|set content type      |application/json                               |
+|copy values from      |$userMap                                       |
+|post values as json to|${HOST}/odm-user/api/1/odm-user/user/          |
+|check                 |response status       |200                     |
+|show                  |response                                       |
+|$NEW_USER=            |response                                       |
 
 #| script | Perform rest call |
 #| set method as | POST |
