@@ -2,6 +2,8 @@
 Test
 ---
 
+!define HOST {http://api-dev.teamwill-digital.com}
+
 !2 As a User I want to login anonymously
 
 !include .AcceptanceTests.Services.Authentication.Functions.AnonymousTokenFunction
