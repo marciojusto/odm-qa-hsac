@@ -5,3 +5,7 @@ Test
 !2 As a User I want to login anonymously
 
 !include .AcceptanceTests.Services.Authentication.Functions.AnonymousTokenFunction
+
+!2 As a User I want to create the user information
+
+!include .AcceptanceTests.Services.Authentication.Functions.CreateNewUserFunction

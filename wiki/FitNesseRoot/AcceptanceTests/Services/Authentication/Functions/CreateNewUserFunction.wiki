@@ -1,0 +1,40 @@
+!note [POST] '''/odm-user/api/1/odm-user/anonymous/user/'''
+
+
+!4 Create new USER
+
+!define NEW_USER { {{{
+    json={  "username": "${random.username()}",
+            "password": "${random.password()}",
+            "phoneNumber": "${random.phoneNumber()}",
+            "applicationName": "TWDMobileDemo",
+            "login":"${random.email()}"}
+}}} }
+
+|script        |json http test                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|set value     |eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVc2VyIEFub255bW91cyIsImF1dGgiOiJST0xFX0FETUlOIiwidXNlclJlc291cmNlVWlkIjoiNWMwYzQxMjItZWY0Zi00YzM5LTk3ODAtZjY4OGFmODY0YjI0IiwidXNlcm5hbWUiOiI1YzBjNDEyMi1lZjRmLTRjMzktOTc4MC1mNjg4YWY4NjRiMjRAVFdETW9iaWxlRGVtbyIsImFwcGxpY2F0aW9uTmFtZSI6IlRXRE1vYmlsZURlbW8iLCJmaXJzdE5hbWUiOiJVc2VyIiwibGFzdE5hbWUiOiJBbm9ueW1vdXMiLCJlbWFpbCI6IjVjMGM0MTIyLWVmNGYtNGMzOS05NzgwLWY2ODhhZjg2NGIyNEBUV0RNb2JpbGVEZW1vLmZyIiwidGVuYW50U3lzdGVtVWlkIjoiVGVuYW50IiwidGVuYW50UmVzb3VyY2VVaWQiOiJ0ZW5hbnQxIiwiZXhwIjoxNjM5NDgxNTE3fQ.ym4apoVv0AU8lkfBtq3H1jAjbihqtlFqKeo74FGoTjmjK7VnDyLd6oS0cGLCRXc9LWsgrIaRYtCqKTl3hqieKA|for header|Authorization|
+|set value     |{"username": "hsac@TWDMobileDemo","password": "singha2021","phoneNumber": "+33607676410","applicationName": "TWDMobileDemo","login":"hsac@TWDMobileDemo"}                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |for       |json         |
+|post values to|http://api-dev.teamwill-digital.com/odm-user/api/1/odm-user/user/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|check         |response status                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |200                     |
+|show          |response                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
+#| script | Perform rest call |
+#| set method as | POST |
+#| set endpoint as | /odm-user/api/1/odm-user/user/|
+#| $body= | page content | >CreateNewUserJsonBody | relative to | ${PAGE_PATH}.${PAGE_NAME} |
+#| set body as | $body |
+#| retrieve | password | from message body and store in | USER_PASSWORD |
+#| retrieve | login | from message body and store in | USER_LOGIN |
+#| set security token as context var | SECURITY_TOKEN |
+#| perform call |
+#| check | return code | 200 |
+#| ensure | response time is less than | 20000 | ms |
+#| retrieve | partyPersonId | from response body and store in | USER_ASSOCIATED_PARTY |
+#| retrieve | userId | from response body and store in | USER_ID |
+#| retrieve | userCode | from response body and store in | USER_CODE |
+#| show | response time |
+#| show | url |
+#| show | message body as Json  |
+#| show | response body as Json |
+#| show | context value for | USER_ASSOCIATED_PARTY |
+#| show | generate redmine message |

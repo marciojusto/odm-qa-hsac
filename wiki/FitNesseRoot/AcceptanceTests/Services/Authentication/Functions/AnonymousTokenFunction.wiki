@@ -2,10 +2,14 @@
 
 !4 Retrieve TOKEN with anonymous login
 
-|script|json http test                                                                                                                |
-|post  |0 request      |to|http://api-dev.teamwill-digital.com/odm-authentication/api/1/anonymous/token/?applicationName=TWDMobileDemo|
-|check |response status|200                                                                                                           |
-|show  |response                                                                                                                      |
+|script          |json http test                                                                                                                |
+|post            |0 request      |to|http://api-dev.teamwill-digital.com/odm-authentication/api/1/anonymous/token/?applicationName=TWDMobileDemo|
+|check           |response status|200                                                                                                           |
+|show            |response                                                                                                                      |
+|check           |response time  |<5000                                                                                                         |
+|$SECURITY_TOKEN=|json path      |token                                                                                                         |
+
+
 
 
 #|script         |Perform rest call                                                        |
