@@ -2,11 +2,11 @@
 
 !4 Retrieve TOKEN from USER info
 
-|script   |map fixture                      | $userMap |
+|script   |map fixture                      |
 |set value|true  |for|rememberMe       |
 |set value|${PASSWORD}    |for|password       |
 |set value|${APPLICATION_NAME}|for|applicationName|
-|set value|$userMap.login  |for|login          |
+|set value |$`userMap.login` |for|login |
 |$userMapCreated=|copy map                         |
 
 
