@@ -3,13 +3,13 @@
 
 !4 Create new USER
 
-|script   |map fixture                      |
-|set value|!randomUuid  |for|username       |
-|set value|${PASSWORD}    |for|password       |
-|set value|!randomInt   |for|phoneNumber    |
+|script   |map fixture                            |
+|set value|!randomUuid        |for|username       |
+|set value|${PASSWORD}        |for|password       |
+|set value|!randomInt         |for|phoneNumber    |
 |set value|${APPLICATION_NAME}|for|applicationName|
-|set value|!randomUuid  |for|login          |
-|$userMap=|copy map                         |
+|set value|!randomUuid        |for|login          |
+|$userMap=|copy map                               |
 
 |script                |json http test                                 |
 |set value             |Bearer $SECURITY_TOKEN|for header|Authorization|

@@ -2,9 +2,23 @@
 
 !4 Retrieve TOKEN with anonymous login
 
-|script          |json http test                                                                                    |
+|script          |json http test                                                                                          |
 |post            |0 request      |to|${HOST}/odm-authentication/api/1/anonymous/token/?applicationName=${APPLICATION_NAME}|
-|check           |response status|200                                                                               |
-|show            |response                                                                                          |
-|check           |response time  |<5000                                                                             |
-|$SECURITY_TOKEN=|json path      |token                                                                             |
+|check           |response status|200                                                                                     |
+|show            |response                                                                                                |
+|check           |response time  |<5000                                                                                   |
+|$SECURITY_TOKEN=|json path      |token                                                                                   |
+
+|script         |Perform rest call                                                        |
+|set method as  |POST                                                                     |
+|set endpoint as|/odm-authentication/api/1/anonymous/token/?applicationName=TWDMobileDemo |
+|perform call                                                                             |
+|check          |return code               |200                                           |
+|ensure         |response time is less than|20000                          |ms            |
+|ensure         |response tag is not empty |token                                         |
+|retrieve       |token                     |from response body and store in|SECURITY_TOKEN|
+|show           |response time                                                            |
+|show           |url                                                                      |
+|show           |context value for         |SECURITY_TOKEN                                |
+|show           |response body as Json                                                    |
+|show           |generate redmine message                                                 |

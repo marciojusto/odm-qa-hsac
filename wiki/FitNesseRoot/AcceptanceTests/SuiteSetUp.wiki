@@ -8,7 +8,19 @@ An [[import table][.FitNesse.UserGuide.WritingAcceptanceTests.SliM.ImportTable]]
 |Import                                   |
 |nl.hsac.fitnesse.fixture                 |
 |nl.hsac.fitnesse.fixture.slim            |
-|com.teamwill.leaseforge.qa.authentication|
-|com.teamwill.leaseforge.qa.scenario2     |
 |com.teamwill.leaseforge.qa.slim          |
 |com.teamwill.leaseforge.qa.slim.rest     |
+
+|script|Reset context|
+|note | - |
+|note |Here we set vars based on TESTED_ENV|
+|if value of | TESTED_ENV | is | dev | then set | SERVER | as | api-dev.teamwill-digital.com |
+|if value of | TESTED_ENV | is | dev | then set | PROTOCOL | as | https |
+|note | - |
+|if value of | TESTED_ENV | is | int | then set | SERVER | as | api-int.teamwill-digital.com |
+|if value of | TESTED_ENV | is | int | then set | PROTOCOL | as | https |
+|note | - |
+|show | context value for | TESTED_ENV_SRC |
+|show | context value for | TESTED_ENV |
+|show | context value for | SERVER |
+|show | context value for | PROTOCOL |

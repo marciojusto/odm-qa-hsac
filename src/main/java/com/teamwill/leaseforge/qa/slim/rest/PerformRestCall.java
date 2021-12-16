@@ -25,7 +25,7 @@ public class PerformRestCall extends AbstractScript {
 
     public static final MediaType JSON
             = MediaType.get("application/json; charset=utf-8");
-    private static final RequestBody EMPTY_BODY = RequestBody.create(new byte[]{}, null);
+    private static final RequestBody EMPTY_BODY = RequestBody.create(JSON, "");
     private static final ObjectMapper mapper = new ObjectMapper();
     private static final OkHttpClient client = new OkHttpClient.Builder()
             .connectionSpecs(Arrays.asList(
@@ -190,7 +190,7 @@ public class PerformRestCall extends AbstractScript {
 
     public RequestBody buildBody() {
         messageBody = messageBody.contains("$") ? merge(messageBody) : messageBody;
-        return RequestBody.create(messageBody, mediaType);
+        return RequestBody.create(mediaType, messageBody);
     }
 
     public boolean responseTagIsNotEmpty(String tag) {
