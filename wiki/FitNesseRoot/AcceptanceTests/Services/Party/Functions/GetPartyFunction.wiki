@@ -1,0 +1,13 @@
+|script                           |Perform rest call                                                        |
+|set method as                    |GET                                                                      |
+|set endpoint as                  |/odm-party/api/1/odm-party/party/${context.get("USER_ASSOCIATED_PARTY")}/|
+|show                             |context value for         |SECURITY_TOKEN                                |
+|set security token as context var|SECURITY_TOKEN                                                           |
+|perform call                                                                                               |
+|check                            |return code               |200                                           |
+|ensure                           |response tag is not empty |resourceUid                                   |
+|ensure                           |response time is less than|30000                          |ms            |
+|retrieve                         |contacts[0].resourceUid   |from response body and store in|CONTACT_ID    |
+|show                             |url                                                                      |
+|show                             |response time                                                            |
+|show                             |response body as Json                                                    |

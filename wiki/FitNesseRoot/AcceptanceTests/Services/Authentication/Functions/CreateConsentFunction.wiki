@@ -1,0 +1,18 @@
+!note [POST] '''/odm-user/api/1/odm-party/partycontactmechanism/CONTACT_ID/partycontactconsent/'''
+
+!4 Create Consent
+
+| script | Perform rest call |
+| set method as | POST |
+| set endpoint as | /odm-party/api/1/odm-party/partycontactmechanism/${context.get("CONTACT_ID")}/partycontactconsent/ |
+| $body= | page content | >CreateConsentJsonBody | relative to | ${PAGE_PATH}.${PAGE_NAME} |
+| set body as | $body |
+| set security token as context var | SECURITY_TOKEN |
+| perform call |
+| check | return code | 200 |
+| ensure | response time is less than | 20000 | ms |
+| show | response time |
+| show | url |
+| show | message body as Json  |
+| show | response body as Json |
+| show | generate redmine message |

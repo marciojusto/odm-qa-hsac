@@ -1,0 +1,19 @@
+!note [POST] '''/api/1/odm-filemngt/file/'''
+
+!4 Upload File
+
+| script | Perform rest call |
+| set method as | POST |
+| set endpoint as | /odm-filemngt/api/1/odm-filemngt/file/ |
+| $body= | page content | >UploadFileJsonBody | relative to | ${PAGE_PATH}.${PAGE_NAME} |
+| set body as | $body |
+| set security token as context var | SECURITY_TOKEN |
+| perform call |
+| check | return code | 200 |
+| ensure | response time is less than | 2000 | ms |
+| retrieve | resourceUid | from response body and store in | FILE_ID |
+| show | response time |
+| show | url |
+| show | message body as Json  |
+| show | response body as Json |
+| show | generate redmine message |

@@ -1,0 +1,11 @@
+It it not allowed to put comments after the json body
+
+==JSON==
+
+{
+ "userResourceUid" : {
+ "objectType": "odm.user.User",
+ "systemUid": "odm-user",
+ "resourceUid": "Singha"
+ }
+}

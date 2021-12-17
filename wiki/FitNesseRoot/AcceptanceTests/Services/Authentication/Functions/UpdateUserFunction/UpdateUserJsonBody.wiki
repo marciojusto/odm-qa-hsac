@@ -1,0 +1,18 @@
+It it not allowed to put comments after the json body
+
+==JSON==
+
+{
+    "resourceUid": "${context.get("USER_ASSOCIATED_PARTY")}",
+    "associatedParty": {
+        "objectType": "party-Person",
+        "resourceUid": "${context.get("USER_ASSOCIATED_PARTY")}",
+        "systemUid": "odm-party"
+    },
+    "applicationName": "odm-user",
+    "username": "${context.get("USER_CODE")}",
+    "lastName": "${random.lastName()}",
+    "firstName": "${random.firstName()}",
+    "systemUid": "odm-user",
+    "email": "${random.email()}"
+}

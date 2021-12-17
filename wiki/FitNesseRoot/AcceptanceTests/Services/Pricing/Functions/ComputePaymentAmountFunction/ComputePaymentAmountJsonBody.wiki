@@ -1,0 +1,12 @@
+It it not allowed to put comments after the json body
+
+==JSON==
+{
+    "financedAmount":5000.00,
+    "paymentCount":2,
+    "paymentFrequency":5,
+    "paymentFrequencyUnit":"MONTH",
+    "paymentTerm":"ARREARS",
+    "rateType":"FIXED",
+    "fixedRateValue":1.0
+}

@@ -1,0 +1,11 @@
+It it not allowed to put comments after the json body
+
+==JSON==
+
+{
+    "fileReference": {
+        "objectType": "odm.filemngt.filedescriptor",
+        "systemUid": "odm-filemngt",
+        "resourceUid": "${context.get("PROCESS_ID")}"
+    }
+}

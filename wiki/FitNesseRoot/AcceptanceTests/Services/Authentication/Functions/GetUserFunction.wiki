@@ -1,0 +1,15 @@
+!note [GET] '''/odm-user/api/1/odm-user/leaseforgeuser/${context.get("USER_ASSOCIATED_PARTY")}/'''
+
+!4 Get user information
+
+| script |Perform rest call|
+| set method as | GET |
+| set endpoint as | /odm-user/api/1/odm-user/leaseforgeuser/${context.get("USER_ASSOCIATED_PARTY")}/ |
+| set security token as context var | SECURITY_TOKEN |
+| perform call |
+| check | return code | 200 |
+| ensure | response time is less than | 20000 | ms |
+| show | response time |
+| show | url |
+| show | response body as Json |
+| show | generate redmine message |

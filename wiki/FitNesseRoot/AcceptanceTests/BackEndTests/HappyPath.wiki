@@ -2,10 +2,6 @@
 Test
 ---
 
-!define HOST {http://api-dev.teamwill-digital.com}
-!define APPLICATION_NAME {TWDMobileDemo}
-!define PASSWORD {singha202}
-
 !2 As a User I want to login anonymously
 
 !include .AcceptanceTests.Services.Authentication.Functions.AnonymousTokenFunction
@@ -17,3 +13,59 @@ Test
 !2 As a User I want to retrive the TOKEN from the login created
 
 !include .AcceptanceTests.Services.Authentication.Functions.UserTokenFunction
+
+!2 As a User I want to retrieve the PARTY information
+
+!include .AcceptanceTests.Services.Party.Functions.GetPartyFunction
+
+!2 As a User I want to give a consent
+
+!include .AcceptanceTests.Services.Authentication.Functions.CreateConsentFunction
+
+!2 As a User I want to retrieve the user information
+
+!include .AcceptanceTests.Services.Authentication.Functions.GetUserFunction
+
+!2 As a User I want to create the address information
+
+!include .AcceptanceTests.Services.Party.Person.Functions.CreateAddressFunction
+
+!2 As a User I want to update the user information
+
+!include .AcceptanceTests.Services.Authentication.Functions.UpdateUserFunction
+
+!2 As a User I want to update the Party Person information
+
+!include .AcceptanceTests.Services.Party.Person.Functions.UpdatePartyPersonFunction
+
+!2 As a User I want to compute the payment amount
+
+!include .AcceptanceTests.Services.Pricing.Functions.ComputePaymentAmountFunction
+
+!2 As a User I want to initialize the supporting document process
+
+!include .AcceptanceTests.Services.Documents.SupportingDocuments.Process.Functions.InitializeProcessFunction
+
+!2 As a User I want to upload certain file
+
+!include .AcceptanceTests.Services.Documents.FileManagement.Functions.UploadFileFunction
+
+!2 As a User I want to Receive certain file
+
+!include .AcceptanceTests.Services.Documents.SupportingDocuments.Process.Functions.ReceiveFileFunction
+
+!2 As a User I want to obtain all the documents
+
+!include .AcceptanceTests.Services.Documents.SupportingDocuments.Process.Functions.GetAllDocumentsFunction
+
+!2 As a User I want to delete certain file
+
+!include .AcceptanceTests.Services.Documents.SupportingDocuments.Process.Functions.DeleteFileFunction
+
+!2 As I User I want to get scoring
+
+!include .AcceptanceTests.Services.ExternalServices.Functions.GetScoringFunction
+
+!2 As I User I want to start an Esign simulation
+
+!include .AcceptanceTests.Services.ExternalServices.Functions.StartSimulationFunction

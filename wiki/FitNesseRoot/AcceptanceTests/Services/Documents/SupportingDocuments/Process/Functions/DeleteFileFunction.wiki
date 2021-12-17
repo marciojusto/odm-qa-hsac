@@ -1,0 +1,15 @@
+!note [DELETE] '''/odm-supportingdocument/api/1/odm-supportingdocument/process/${context.get("PROCESS_ID")}/file/${context.get("SUPPORTING_DOCUMENT_ID")}/'''
+
+!4 Delete File
+
+| script | Perform rest call |
+| set method as | DELETE |
+| set endpoint as | /odm-supportingdocument/api/1/odm-supportingdocument/process/${context.get("PROCESS_ID")}/file/${context.get("SUPPORTING_DOCUMENT_ID")}/ |
+| set security token as context var | SECURITY_TOKEN |
+| perform call |
+| check | return code | 200 |
+| ensure | response time is less than | 20000 | ms |
+| show | response time |
+| show | url |
+| show | response body as Json |
+| show | generate redmine message |

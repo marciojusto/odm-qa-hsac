@@ -1,0 +1,10 @@
+!note [POST] '''/api/1/odm-uaa/anonymous/token/'''
+
+!4 Retrieve TOKEN with anonymous login
+
+|script          |json http test                                                                                          |
+|post            |0 request      |to|${HOST}/odm-authentication/api/1/anonymous/token/?applicationName=${APPLICATION_NAME}|
+|check           |response status|200                                                                                     |
+|show            |response                                                                                                |
+|check           |response time  |<5000                                                                                   |
+|$SECURITY_TOKEN=|json path      |token                                                                                   |

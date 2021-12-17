@@ -1,0 +1,18 @@
+!note [PUT] '''/odm-party/api/1/odm-party/person/USER_ASSOCIATED_PARTY/'''
+
+!4 Update Party Person
+
+| script | Perform rest call |
+| set method as | PUT |
+| set endpoint as | /odm-party/api/1/odm-party/person/${context.get("USER_ASSOCIATED_PARTY")}/ |
+| $body= | page content | >UpdatePartyPersonJsonBody | relative to | ${PAGE_PATH}.${PAGE_NAME} |
+| set body as | $body |
+| set security token as context var | SECURITY_TOKEN |
+| perform call |
+| check | return code | 200 |
+| ensure | response time is less than | 20000 | ms |
+| show | response time |
+| show | url |
+| show | message body as Json  |
+| show | response body as Json |
+| show | generate redmine message |

@@ -1,0 +1,19 @@
+---
+Test
+---
+
+!define HOST {http://api-dev.teamwill-digital.com}
+!define APPLICATION_NAME {TWDMobileDemo}
+!define PASSWORD {singha202}
+
+!2 As a User I want to login anonymously
+
+!include .AcceptanceTests.Services.Authentication.NewFunctions.AnonymousTokenFunction
+
+!2 As a User I want to create the user information
+
+!include .AcceptanceTests.Services.Authentication.NewFunctions.CreateNewUserFunction
+
+!2 As a User I want to retrive the TOKEN from the login created
+
+!include .AcceptanceTests.Services.Authentication.NewFunctions.UserTokenFunction

@@ -1,0 +1,42 @@
+!note [POST] '''/odm-user/api/1/odm-user/anonymous/user/'''
+
+
+!4 Create new USER
+
+|script   |map fixture                            |
+|set value|!randomUuid        |for|username       |
+|set value|${PASSWORD}        |for|password       |
+|set value|!randomInt         |for|phoneNumber    |
+|set value|${APPLICATION_NAME}|for|applicationName|
+|set value|!randomUuid        |for|login          |
+|$userMap=|copy map                               |
+
+|script                |json http test                                 |
+|set value             |Bearer $SECURITY_TOKEN|for header|Authorization|
+|set content type      |application/json                               |
+|copy values from      |$userMap                                       |
+|post values as json to|${HOST}/odm-user/api/1/odm-user/user/          |
+|check                 |response status       |200                     |
+|show                  |response                                       |
+|$NEW_USER=            |response                                       |
+
+#| script | Perform rest call |
+#| set method as | POST |
+#| set endpoint as | /odm-user/api/1/odm-user/user/|
+#| $body= | page content | >CreateNewUserJsonBody | relative to | ${PAGE_PATH}.${PAGE_NAME} |
+#| set body as | $body |
+#| retrieve | password | from message body and store in | USER_PASSWORD |
+#| retrieve | login | from message body and store in | USER_LOGIN |
+#| set security token as context var | SECURITY_TOKEN |
+#| perform call |
+#| check | return code | 200 |
+#| ensure | response time is less than | 20000 | ms |
+#| retrieve | partyPersonId | from response body and store in | USER_ASSOCIATED_PARTY |
+#| retrieve | userId | from response body and store in | USER_ID |
+#| retrieve | userCode | from response body and store in | USER_CODE |
+#| show | response time |
+#| show | url |
+#| show | message body as Json  |
+#| show | response body as Json |
+#| show | context value for | USER_ASSOCIATED_PARTY |
+#| show | generate redmine message |

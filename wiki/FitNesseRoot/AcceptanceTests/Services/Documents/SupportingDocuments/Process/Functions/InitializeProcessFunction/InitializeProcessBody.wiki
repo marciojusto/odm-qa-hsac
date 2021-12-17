@@ -1,0 +1,6 @@
+It it not allowed to put comments after the json body
+
+==JSON==
+{
+    "systemUid": "odm-supportingdocument"
+}

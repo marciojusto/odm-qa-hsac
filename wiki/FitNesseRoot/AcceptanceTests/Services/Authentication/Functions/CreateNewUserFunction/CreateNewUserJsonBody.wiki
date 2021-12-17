@@ -1,0 +1,10 @@
+It it not allowed to put comments after the json body
+
+==JSON==
+{
+    "username": "${random.username()}",
+    "password": "${random.password()}",
+    "phoneNumber": "${random.phoneNumber()}",
+    "applicationName": "TWDMobileDemo",
+    "login":"${random.email()}"
+}

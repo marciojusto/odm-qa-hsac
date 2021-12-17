@@ -1,0 +1,14 @@
+!note [GET] '''20.105.201.26:30003/api/1/scoring/'''
+
+!4 Get Scoring
+
+| script |Perform rest call|
+| set method as | GET |
+| set alternative endpoint as | 20.105.201.26:30003/api/1/scoring/ |
+| set security token as context var | SECURITY_TOKEN |
+| perform call |
+| check | return code | 200 |
+| ensure | response time is less than | 3000 | ms |
+| show | url |
+| show | response time |
+| show | response body as Json |

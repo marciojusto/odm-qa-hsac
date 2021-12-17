@@ -1,0 +1,18 @@
+!note [POST] '''20.105.201.26:30003/api/1/scoring/'''
+
+!3 Esign start a simulation
+
+| script|Perform rest call|
+| set method as  | POST |
+| set alternative endpoint as  | 20.105.201.26:30003/api/1/simulation/start/ |
+| $body= | page content | >StartSimulationJsonBody | relative to | ${PAGE_PATH}.${PAGE_NAME} |
+| set body as | $body |
+| set security token as context var | SECURITY_TOKEN |
+| perform call |
+| check | return code | 200 |
+| ensure | response time is less than | 2000 | ms |
+| show | response time |
+| show | url |
+| show | message body as Json  |
+| show | response body as Json |
+| show | generate redmine message |

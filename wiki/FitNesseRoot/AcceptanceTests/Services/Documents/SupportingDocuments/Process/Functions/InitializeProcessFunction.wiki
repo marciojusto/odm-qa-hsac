@@ -1,0 +1,19 @@
+!note [POST] '''/odm-supportingdocument/api/1/odm-supportingdocument/process/'''
+
+!4 Initialize Process
+
+| script | Perform rest call |
+| set method as | POST |
+| set endpoint as | /odm-supportingdocument/api/1/odm-supportingdocument/process/ |
+| $body= | page content | >InitializeProcessBody | relative to | ${PAGE_PATH}.${PAGE_NAME} |
+| set body as | $body |
+| set security token as context var | SECURITY_TOKEN |
+| perform call |
+| check | return code | 200 |
+| ensure | response time is less than | 20000 | ms |
+| retrieve | resourceUid | from response body and store in | PROCESS_ID |
+| show | response time |
+| show | url |
+| show | message body as Json  |
+| show | response body as Json |
+| show | generate redmine message |

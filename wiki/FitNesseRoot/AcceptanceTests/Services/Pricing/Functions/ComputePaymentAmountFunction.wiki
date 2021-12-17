@@ -1,0 +1,18 @@
+!note [POST] '''/financial/api/1/financial/computePaymentAmount/'''
+
+!4 Compute Payment Amount
+
+| script | Perform rest call |
+| set method as | POST |
+| set endpoint as | /financial/api/1/financial/computePaymentAmount/ |
+| $body= | page content | >ComputePaymentAmountJsonBody | relative to | ${PAGE_PATH}.${PAGE_NAME} |
+| set body as | $body |
+| set security token as context var | SECURITY_TOKEN |
+| perform call |
+| check | return code | 200 |
+| ensure | response time is less than | 20000 | ms |
+| show | response time |
+| show | url |
+| show | message body as Json  |
+| show | response body as Json |
+| show | generate redmine message |

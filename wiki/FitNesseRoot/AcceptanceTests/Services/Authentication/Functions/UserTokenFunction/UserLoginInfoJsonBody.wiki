@@ -1,0 +1,9 @@
+It it not allowed to put comments after the json body
+
+==JSON==
+{
+	"login": "${context.get("USER_LOGIN")}",
+    "password": "${context.get("USER_PASSWORD")}",
+    "rememberMe": true,
+    "applicationName": "TWDMobileDemo"
+}
